@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="styleprofile.css" />
+        <title>Meu Perfil</title>
+        <link rel="icon" type="image/x-icon" href="assets/ludus.png" />
+    </head>
+    <body>
+        <div class="form-container">
+            <h2>Meu Perfil</h2>
+            <form id="update-form">
+                <label for="username">Nome de Usuário</label>
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    placeholder="Digite o novo nome"
+                />
+
+                <label for="profile_picture">Foto de Perfil</label>
+                <input
+                    type="file"
+                    id="profile_picture"
+                    name="profile_picture"
+                />
+
+                <button type="submit">Atualizar Perfil</button>
+            </form>
+
+            <button class="secondary-button delete-button" id="delete-account">
+                Excluir Conta
+            </button>
+        </div>
+
+        <div>
+            <img
+                class="imagebuttonvoltar"
+                src="../assets/seta_voltar.png"
+                alt="Votar ao menu"
+                onclick="location.href='index.html'"
+            />
+        </div>
+
+        <!-- Modal de confirmação -->
+        <div class="confirm-modal" id="confirm-modal">
+            <div class="modal-content">
+                <p>Tem certeza que deseja excluir sua conta?</p>
+                <button id="confirm-delete">Sim</button>
+                <button id="cancel-delete">Cancelar</button>
+            </div>
+        </div>
+        <script>
+            const updateForm = document.getElementById("update-form");
+            const deleteButton = document.getElementById("delete-account");
+            const confirmModal = document.getElementById("confirm-modal");
+            const confirmDelete = document.getElementById("confirm-delete");
+            const cancelDelete = document.getElementById("cancel-delete");
+
+            // Token JWT armazenado no localStorage
+            const token = localStorage.getItem("token");
+
+            if (!token) {
+                alert("Usuário não autenticado. Faça login para continuar.");
+                window.location.href = "/login.html"; // Redireciona para a página de login
+            }
+
+            // Atualizar perfil
+            updateForm.addEventListener("submit", async (e) => {
+                e.preventDefault();
+                const formData = new FormData(updateForm);
+
+                try {
+                    const response = await fetch(
+                        "http://localhost:3000/user/update",
+                        {
+                            method: "PUT",
+                            headers: {
+                                Authorization: `Bearer ${token}`,
+                            },
+                            body: formData,
+                        }
+                    );
+                    const data = await response.json();
+                    if (data.success) {
+                        window.location.href = "index.html"; // Redireciona para o index.html após atualização
+                    } else {
+                        console.error(
+                            data.message || "Erro ao atualizar perfil."
+                        );
+                    }
+                } catch (err) {
+                    console.error(err);
+                    alert("Erro ao atualizar perfil.");
+                }
+            });
+
+            // Abrir modal de confirmação
+            deleteButton.addEventListener("click", () => {
+                confirmModal.style.display = "flex";
+            });
+
+            // Confirmar exclusão
+            confirmDelete.addEventListener("click", async () => {
+                try {
+                    const response = await fetch(
+                        "http://localhost:3000/user/delete",
+                        {
+                            method: "DELETE",
+                            headers: {
+                                "Content-Type": "application/json",
+                                Authorization: `Bearer ${token}`,
+                            },
+                        }
+                    );
+                    const data = await response.json();
+                    if (data.success) {
+                        localStorage.removeItem("token");
+                        window.location.href = "/"; // Redirecionar após exclusão
+                    } else {
+                        console.error(data.message || "Erro ao excluir conta.");
+                    }
+                } catch (err) {
+                    console.error(err);
+                    alert("Erro ao excluir conta.");
+                }
+            });
+
+            // Cancelar exclusão
+            cancelDelete.addEventListener("click", () => {
+                confirmModal.style.display = "none";
+            });
+        </script>
+    </body>
+</html>

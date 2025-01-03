@@ -1,0 +1,385 @@
+/* Estilos gerais */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #98b7c3; /* Azul claro */
+    color: #f4f4f4; /* Letras brancas */
+}
+
+/* Oculta a barra de rolagem para a página com classe "home-page" */
+.home-page {
+    overflow: hidden; /* Oculta completamente a barra de rolagem */
+}
+
+.home-page::-webkit-scrollbar {
+    display: none; /* Oculta a barra no Webkit (Chrome, Edge, Safari) */
+}
+
+.home-page {
+    scrollbar-width: none; /* Oculta a barra no Firefox */
+    -ms-overflow-style: none; /* Oculta a barra no IE e Edge antigo */
+}
+
+a {
+    text-decoration: none;
+    color: #f4f4f4; /* Links brancos */
+}
+
+button {
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #006a92; /* Azul escuro */
+    color: #f4f4f4; /* Texto branco */
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #b8dceb; /* Azul ciano */
+    color: #006a92; /* Texto azul escuro */
+}
+
+/* Menu superior */
+.menu-superior-menu {
+    align-items: center;
+    background-color: #006a92; /* Azul escuro */
+    padding: 10px 20px;
+}
+
+.menu-superior {
+    align-items: center;
+    background-color: #006a92; /* Azul escuro */
+    padding: 37px 20px;
+}
+
+.usuario {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.usuario span {
+    font-size: 22px;
+    font-weight: bold;
+    position: relative;
+    top: 4px;
+    white-space: nowrap;
+}
+
+.usuario .links a {
+    display: inline-block;
+    margin: 5px 0;
+    padding: 5px 10px;
+    background-color: #006a92; /* Azul escuro */
+    border-radius: 5px;
+    text-align: center;
+}
+
+.usuario .links a:hover {
+    background-color: #b8dceb; /* Azul ciano */
+    color: #006a92; /* Texto azul escuro */
+}
+
+#user-info {
+    text-align: right;
+    color: #f4f4f4;
+    position: relative;
+    z-index: 10;
+    bottom: 9px;
+}
+
+#user-info button {
+    margin-top: 5px;
+    background-color: #b8dceb;
+    color: #006a92;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+#user-info button:hover {
+    background-color: #006a92;
+    color: #f4f4f4;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#profile-picture-container {
+    display: flex;
+    align-items: center;
+}
+
+button {
+    margin-left: 10px;
+}
+
+.fotoperfil {
+    overflow: hidden;
+    cursor: pointer;
+    width: 4.5%;
+    height: 4.5%;
+    position: relative;
+    z-index: 10; /* Garante que o botão fique acima de outros elementos */
+    top: 15px;
+    right: 10px;
+    border-radius: 5px;
+}
+
+.fotoperfil:hover {
+    transition: transform 0.5s;
+    transform: scale(1.5);
+    transition: transform 0.5s;
+}
+
+#logout-button {
+    position: relative;
+    z-index: 10; /* Garante que o botão fique acima de outros elementos */
+}
+/* Títulos */
+.titulo-principal,
+.titulo-jogos,
+.titulo-como-jogar {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 0px;
+    padding-top: -80px;
+    border-radius: 5px;
+    color: #f4f4f4; /* Letras brancas */
+}
+
+/* Jogos */
+.games {
+    max-width: 1080px; /* Ajuste para comportar o tamanho do iframe */
+    margin: 0 auto;
+}
+
+.game-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+    background-color: #006a92; /* Fundo para destacar */
+    border-radius: 10px;
+}
+
+iframe {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.game {
+    margin: 10% 0;
+    padding: 15px;
+    background-color: #b8dceb; /* Azul ciano */
+    border-radius: 5px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Seção "Como Jogar" */
+.como-jogar {
+    max-width: 1080px;
+    margin: -10% auto;
+    margin-bottom: -6%;
+    background-color: #006a92; /* Azul escuro */
+    border-radius: 5px;
+    color: #f4f4f4; /* Texto branco */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.titulo-como-jogar h3 {
+    font-size: 50px;
+    padding: 2%;
+    font-weight: bold;
+    margin-right: 59%;
+    color: #b8dceb; /* Texto branco */
+    text-transform: uppercase;
+}
+
+.container {
+    display: flex;
+    gap: 150px;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transform: translateY(-80px);
+}
+
+.image-button {
+    width: 500px;
+    height: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.image-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-button:hover {
+    transform: scale(1.05);
+}
+
+.titles {
+    display: flex;
+    gap: 210px;
+    margin-top: 10px;
+}
+
+.title {
+    width: 300px;
+    text-align: center;
+    background-color: #006a92;
+    color: #f4f4f4;
+    padding: 10px 0;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    transform: translateY(-250px);
+    margin-left: 170px;
+}
+
+.imagebuttonvoltar {
+    margin-top: 35px;
+    margin-left: 35px;
+    width: 100%;
+    max-width: 60px; /* Largura máxima */
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 14px 16px rgba(0, 0, 0, 0.1);
+}
+
+.imagebuttonvoltar:hover {
+    box-shadow: 0 16px 24px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 1.3s;
+    transition: transform 1.3s;
+    transition: background-color 1.3s;
+    background-color: #006a92;
+}
+
+.video-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    text-align: center; /* Centraliza o vídeo */
+    margin: -3% 0;
+    padding: 15px;
+}
+
+.video-container video {
+    width: 50%; /* Responsivo */
+    max-width: 800px; /* Largura máxima */
+    height: auto; /* Ajusta altura proporcional */
+    border-radius: 8px;
+}
+
+.video-container p {
+    flex: 1;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.1;
+    text-align: justify;
+    margin: 0%;
+    color: #f4f4f4; /* Letras brancas */
+}
+
+.como-jogar h3 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.imagebuttonplay {
+    width: 100%;
+    margin-top: 2%;
+    max-width: 150px; /* Largura máxima */
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 14px 16px rgba(0, 0, 0, 0.4);
+}
+
+.imagebuttonplay:hover {
+    box-shadow: 0 16px 24px rgba(0, 0, 0, 0.4);
+    transition: box-shadow 1.3s;
+    transition: transform 1.3s;
+    transition: background-color 1.3s;
+    transform: scale(1.2);
+}
+
+.download-button {
+    margin-bottom: 2%;
+    margin-top: 2%;
+    background-color: #013345; /* Azul ciano */
+    color: #f4f4f4; /* Texto azul escuro */
+    box-shadow: 0 14px 16px rgba(0, 0, 0, 0.4);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.download-button:hover {
+    background-color: #013345; /* Azul escuro */
+    color: #f4f4f4; /* Texto branco */
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 12px 20px 0 rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Estilo do botão de download com imagem e texto */
+.custom-download-button {
+    display: flex; /* Torna os elementos internos flexíveis */
+    align-items: center; /* Alinha a imagem e o texto verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    gap: 10px; /* Espaçamento entre a imagem e o texto */
+    padding: 10px 20px;
+    margin-left: 39%;
+}
+
+/* Estilo para a imagem dentro do botão */
+.custom-button-img {
+    width: 28px; /* Largura da imagem */
+    height: 28px; /* Altura da imagem */
+    object-fit: contain; /* Garante que a proporção da imagem seja mantida */
+    flex-shrink: 0; /* Impede que a imagem seja redimensionada automaticamente */
+}
+
+/* Estilo do texto dentro do botão */
+.custom-download-button p {
+    margin: 0; /* Remove margens extras do texto */
+    font-size: 16px; /* Define o tamanho do texto */
+    line-height: 1; /* Ajusta o espaçamento do texto */
+    color: inherit; /* Mantém a cor do botão */
+}

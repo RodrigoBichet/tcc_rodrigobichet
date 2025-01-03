@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../styleauthentication.css" />
+        <title>Cadastro</title>
+        <link rel="icon" type="image/x-icon" href="assets/ludus.png" />
+    </head>
+    <body>
+        <div class="form-container">
+            <h2>Cadastro</h2>
+            <form id="register-form">
+                <label for="username">Nome de usuário:</label>
+                <input
+                    type="text"
+                    id="username"
+                    placeholder="Digite seu nome de usuário"
+                    required
+                />
+                <small id="username-error" class="error"></small>
+
+                <label for="email">E-mail:</label>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Digite seu e-mail"
+                    required
+                />
+                <small id="email-error" class="error"></small>
+
+                <label for="password">Senha:</label>
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Digite sua senha"
+                    required
+                />
+                <small id="password-error" class="error"></small>
+
+                <label for="confirm-password">Confirme a senha:</label>
+                <input
+                    type="password"
+                    id="confirm-password"
+                    placeholder="Confirme sua senha"
+                    required
+                />
+                <small id="confirm-password-error" class="error"></small>
+
+                <!-- <label for="profile-picture">Foto de perfil:</label>
+                <input type="file" id="profile-picture" accept="image/*" />
+                <small id="profile-picture-error" class="error"></small> -->
+
+                <button type="submit">Cadastrar</button>
+                <small id="success-message" class="success"></small>
+            </form>
+            <button class="secondary-button" onclick="redirectToLogin()">
+                Já tem conta? Ir para Login
+            </button>
+        </div>
+
+        <script src="register.js"></script>
+    </body>
+</html>

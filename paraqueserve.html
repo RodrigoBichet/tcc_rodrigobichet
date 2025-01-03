@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../style.css" />
+        <title>Paraqueserve</title>
+        <link rel="icon" type="image/x-icon" href="assets/ludus.png" />
+    </head>
+    <body>
+        <div class="menu-superior-menu">
+            <div id="user-info" class="usuario">
+                <!-- O nome do usuário e foto de perfil serão carregados dinamicamente aqui -->
+                <!-- <div id="profile-picture-container" style="display: none">
+                    <img
+                        id="profile-picture"
+                        src=""
+                        alt="Foto de Perfil"
+                        width="50"
+                        height="50"
+                    />
+
+                    <span id="welcome-message"></span>
+                    
+                    <button id="logout-button">Sair</button>
+                </div>
+                 -->
+                <div id="profile-picture-container" style="display: none">
+                    <!-- <img
+                        id="profile-picture"
+                        src=""
+                        alt="Foto de Perfil"
+                        width="50"
+                        height="50"
+                    /> -->
+                    <img
+                        id="profile-picture"
+                        alt="Foto do Perfil"
+                        class="fotoperfil"
+                    />
+                    <span id="welcome-message"></span>
+                    <!-- Local onde a mensagem de boas-vindas será exibida -->
+                    <button id="logout-button">Sair</button>
+                </div>
+
+                <div id="login-register-buttons">
+                    <button id="login-button">Login</button>
+                    <button id="register-button">Cadastrar</button>
+                </div>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+        <script>
+            // Chama a função para verificar o status do login e carregar o nome do usuário ou opções de login
+            checkLoginStatus();
+        </script>
+
+        <img
+            class="imagebuttonvoltar"
+            src="../assets/seta_voltar.png"
+            alt="Votar ao menu"
+            onclick="location.href='index.html'"
+        />
+
+        <!-- Seção "Como jogar"
+        <section class="como-jogar">
+            <div class="titulo-como-jogar">
+                <h3>Como jogar</h3>
+            </div>
+            <div class="texto-como-jogar">
+            </section>
+
+                <p>
+                    A primeira tela exibida ao entrar no jogo Para que Serve? é
+                    o menu. Essa tela apresenta os botões de “Play”, acesso aos
+                    créditos, configurar o som, acesso ao tutorial. Ao clicar no
+                    botão de início, o jogador é direcionado para a tela de
+                    seleção de categorias.O jogo é composto por cinco
+                    categorias. Cada categoria aborda uma etapa diferente do
+                    processo de aprendizado sobre o cotidiano.Após escolher uma
+                    categoria, o jogador é levado ao objetivo principal do jogo,
+                    que consiste em arrastar o objeto correto até a ação
+                    correspondente. Além disso, o jogador tem a opção de ouvir
+                    um áudio explicativo da ação, o que facilita a associação
+                    correta do objeto e auxilia na progressão de fase.Ao
+                    realizar corretamente cinco pareamentos entre objeto e ação,
+                    o jogador é direcionado para uma tela de feedback, onde
+                    recebe uma avaliação se foi bem, pode melhorar ou tentar a
+                    categoria novamente. O jogador pode voltar à seleção de
+                    categorias e refazer qualquer uma delas quantas vezes
+                    desejar.
+                </p>
+            </div>
+        </section> -->
+        <!-- Seção "Como jogar" com vídeo -->
+        <section class="como-jogar">
+            <div class="titulo-como-jogar">
+                <h3>Como jogar</h3>
+            </div>
+
+            <!-- Adicionando o vídeo -->
+            <div class="texto-como-jogar">
+                <div class="video-container">
+                    <video controls>
+                        <source
+                            src="assets/TutorialParaqueserve.mp4"
+                            type="video/mp4"
+                        />
+                        Seu navegador não suporta a reprodução de vídeos.
+                    </video>
+
+                    <p>
+                        A primeira tela exibida ao entrar no jogo Para que
+                        Serve? é o menu. Essa tela apresenta os botões de
+                        “Play”, acesso aos créditos, configurar o som, acesso ao
+                        tutorial. Ao clicar no botão de início, o jogador é
+                        direcionado para a tela de seleção de categorias. O jogo
+                        é composto por cinco categorias. Cada categoria aborda
+                        uma etapa diferente do processo de aprendizado sobre o
+                        cotidiano. Após escolher uma categoria, o jogador é
+                        levado ao objetivo principal do jogo, que consiste em
+                        arrastar o objeto correto até a ação correspondente.
+                        Além disso, o jogador tem a opção de ouvir um áudio
+                        explicativo da ação, o que facilita a associação correta
+                        do objeto e auxilia na progressão de fase. Ao realizar
+                        corretamente cinco pareamentos entre objeto e ação, o
+                        jogador é direcionado para uma tela de feedback, onde
+                        recebe uma avaliação se foi bem, pode melhorar ou tentar
+                        a categoria novamente. O jogador pode voltar à seleção
+                        de categorias e refazer qualquer uma delas quantas vezes
+                        desejar.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de jogos -->
+        <div class="games">
+            <div class="game">
+                <img
+                    class="imagebuttonplay"
+                    src="../assets/botao_play.png"
+                    alt="Botao Play"
+                    onclick="startGame('jogo1')"
+                />
+
+                <div id="jogo1-container" class="game-container"></div>
+
+                <a href="/public/downloads/PARAQUESERVE.zip" download>
+                    <button class="download-button custom-download-button">
+                        <img
+                            src="assets/icone_baixar.png"
+                            alt="Download"
+                            class="custom-button-img"
+                        />
+                        <p>Baixar para Windows</p>
+                    </button>
+                </a>
+            </div>
+        </div>
+
+        <script>
+            function startGame(gameId) {
+                const container = document.getElementById(
+                    `${gameId}-container`
+                );
+                if (!container.innerHTML) {
+                    const iframe = document.createElement("iframe");
+                    iframe.src = `../public/jogos/${gameId}/index.html`;
+                    iframe.style.width = "1000px"; // Largura maior
+                    iframe.style.height = "700px"; // Altura maior
+                    iframe.style.display = "block";
+                    iframe.style.margin = "0 auto"; // Centraliza horizontalmente
+                    iframe.style.border = "none";
+                    iframe.allowFullscreen = true;
+
+                    container.style.display = "flex";
+                    container.style.justifyContent = "center"; // Centraliza horizontalmente
+                    container.style.alignItems = "center"; // Centraliza verticalmente
+                    container.style.height = "100vh"; // Altura do contêiner
+                    container.appendChild(iframe);
+                }
+            }
+        </script>
+    </body>
+</html>

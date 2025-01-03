@@ -1,0 +1,146 @@
+/* Estilos globais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #98b7c3; /* Azul claro */
+    color: #f4f4f4; /* Letras brancas */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container principal */
+.form-container {
+    background-color: #006a92; /* Azul escuro */
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Estilos dos inputs */
+input[type="text"],
+input[type="file"] {
+    width: 95%;
+    padding: 10px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Estilo dos botões */
+button {
+    background-color: #f4f4f4;
+    color: #006a92;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #f1f1f1;
+}
+
+.secondary-button {
+    background-color: #004f6e; /* Azul mais escuro */
+    color: #f4f4f4; /* Branco */
+    margin-top: 10px;
+}
+
+.secondary-button:hover {
+    background-color: #003e56; /* Azul ainda mais escuro */
+}
+
+/* Botão de exclusão */
+.delete-button {
+    background-color: #a71d2a; /* Vermelho */
+}
+
+.delete-button:hover {
+    background-color: #9a1b26;
+}
+
+/* Modal de confirmação */
+/* Modal de confirmação */
+.confirm-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    color: #333;
+}
+
+/* Estilo dos botões do modal */
+.modal-content button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Botão confirmar (Sim) com fundo vermelho */
+#confirm-delete {
+    background-color: #a71d2a; /* Vermelho */
+    color: #fff;
+}
+
+#confirm-delete:hover {
+    background-color: #9a1b26; /* Vermelho mais escuro */
+}
+
+/* Botão cancelar (manter azul padrão) */
+#cancel-delete {
+    background-color: #006a92; /* Azul */
+    color: #fff;
+}
+
+#cancel-delete:hover {
+    background-color: #004f6e; /* Azul mais escuro */
+}
+
+.imagebuttonvoltar {
+    position: absolute;
+    top: 23%;
+    left: 30%;
+    width: 100%;
+    max-width: 60px; /* Largura máxima */
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 14px 16px rgba(0, 0, 0, 0.1);
+}
+
+.imagebuttonvoltar:hover {
+    box-shadow: 0 16px 24px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 1.3s;
+    transition: transform 1.3s;
+    transition: background-color 1.3s;
+    background-color: #006a92;
+}

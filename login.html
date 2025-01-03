@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="styleauthentication.css" />
+        <title>Entrar</title>
+        <link rel="icon" type="image/x-icon" href="assets/ludus.png" />
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h2>Login</h2>
+            <input type="text" id="username" placeholder="Usuário" />
+            <input type="password" id="password" placeholder="Senha" />
+            <button onclick="login()">Entrar</button>
+            <!-- Botão para cadastro -->
+            <button class="secondary-button" onclick="redirectToRegister()">
+                Não tem conta? Cadastrar-se
+            </button>
+        </div>
+        <script>
+            function redirectToRegister() {
+                window.location.href = "register.html"; // Substitua pelo caminho correto para a página de cadastro
+            }
+        </script>
+    </body>
+</html>

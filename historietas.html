@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../style.css" />
+        <title>Historietas</title>
+        <link rel="icon" type="image/x-icon" href="assets/ludus.png" />
+    </head>
+    <body>
+        <div class="menu-superior-menu">
+            <div id="user-info" class="usuario">
+                <div id="profile-picture-container" style="display: none">
+                    <img
+                        id="profile-picture"
+                        alt="Foto do Perfil"
+                        class="fotoperfil"
+                    />
+                    <span id="welcome-message"></span>
+                    <button id="logout-button">Sair</button>
+                </div>
+
+                <div id="login-register-buttons">
+                    <button id="login-button">Login</button>
+                    <button id="register-button">Cadastrar</button>
+                </div>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+        <script>
+            // Chama a função para verificar o status do login e carregar o nome do usuário ou opções de login
+            checkLoginStatus();
+        </script>
+
+        <div>
+            <img
+                class="imagebuttonvoltar"
+                src="../assets/seta_voltar.png"
+                alt="Voltar ao menu"
+                onclick="location.href='index.html'"
+            />
+        </div>
+
+        <!-- Seção "Como jogar" -->
+        <section class="como-jogar">
+            <div class="titulo-como-jogar">
+                <h3>Como jogar</h3>
+            </div>
+
+            <div class="texto-como-jogar">
+                <div class="video-container">
+                    <video controls>
+                        <source
+                            src="assets/TutorialHistorietasDivertidas.mp4"
+                            type="video/mp4"
+                        />
+                        Seu navegador não suporta a reprodução de vídeos.
+                    </video>
+
+                    <p>
+                        A mecânica principal do jogo Historietas Divertidas
+                        começa com uma história contada ao jogador, seguida por
+                        uma interação de arrastar, onde o objetivo é responder
+                        perguntas relacionadas à narrativa. Ao entrar no jogo, a
+                        primeira tela é o menu, com botões para jogar,
+                        configurar som, acessar créditos e o tutorial. Após
+                        escolher uma história, o jogador pode ouvir e ler a
+                        narrativa. O objetivo é arrastar o item correto para a
+                        resposta de cada pergunta. Ao acertar cinco perguntas, o
+                        jogador recebe um feedback e pode tentar novamente ou
+                        melhorar. O jogo contém cinco histórias, cada uma com
+                        perguntas relacionadas ao conteúdo narrativo, e o
+                        jogador pode refazer qualquer história quantas vezes
+                        quiser.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de jogos -->
+        <div class="games">
+            <!-- Jogo 2 -->
+            <div class="game">
+                <img
+                    class="imagebuttonplay"
+                    src="../assets/botao_play.png"
+                    alt="Botao Play"
+                    onclick="startGame('jogo2')"
+                />
+                <div id="jogo2-container" class="game-container"></div>
+
+                <a href="/public/downloads/HISTORIETAS.zip" download>
+                    <button class="download-button custom-download-button">
+                        <img
+                            src="assets/icone_baixar.png"
+                            alt="Download"
+                            class="custom-button-img"
+                        />
+                        <p>Baixar para Windows</p>
+                    </button>
+                </a>
+            </div>
+        </div>
+
+        <!-- <script>
+            // Função para iniciar o jogo
+            function startGame(gameId) {
+                const container = document.getElementById(
+                    `${gameId}-container`
+                );
+                if (!container.innerHTML) {
+                    const iframe = document.createElement("iframe");
+                    iframe.src = `../public/jogos/${gameId}/index.html`; // Caminho do jogo
+                    iframe.width = "800"; // Largura fixa
+                    iframe.height = "600"; // Altura fixa
+                    iframe.frameBorder = "0";
+                    iframe.allowFullscreen = true;
+                    container.style.display = "block"; // Garante que o contêiner seja visível
+                    container.appendChild(iframe);
+                }
+            }
+        </script>
+         -->
+        <script>
+            // Função para iniciar o jogo
+            function startGame(gameId) {
+                const container = document.getElementById(
+                    `${gameId}-container`
+                );
+                if (!container.innerHTML) {
+                    const iframe = document.createElement("iframe");
+                    iframe.src = `../public/jogos/${gameId}/index.html`; // Caminho do jogo
+                    iframe.width = "1080"; // Largura aumentada
+                    iframe.height = "700"; // Altura aumentada
+                    iframe.style.display = "block";
+                    iframe.style.margin = "0 auto"; // Centraliza horizontalmente
+                    iframe.style.border = "none"; // Remove a borda do iframe
+                    iframe.allowFullscreen = true;
+                    container.style.display = "flex"; // Define o contêiner como flexbox
+                    container.style.justifyContent = "center"; // Centraliza horizontalmente
+                    container.style.alignItems = "center"; // Centraliza verticalmente
+                    container.style.height = "100vh"; // Define a altura do contêiner
+                    container.appendChild(iframe);
+                }
+            }
+        </script>
+    </body>
+</html>

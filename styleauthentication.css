@@ -1,0 +1,130 @@
+/* Estilos globais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #98b7c3; /* Azul claro */
+    color: #f4f4f4; /* Letras brancas */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container principal para o formulário */
+.form-container,
+.container {
+    background-color: #006a92; /* Quadrado sólido */
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Título do formulário */
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Estilos para os inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="file"] {
+    width: 95%;
+    padding: 10px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Estilo para o botão */
+button {
+    background-color: #f4f4f4;
+    color: #006a92;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #f1f1f1;
+}
+
+/* Mensagens de erro e sucesso */
+.error {
+    color: #ff6666;
+    font-size: 12px;
+}
+
+.success {
+    color: #66cc66;
+    font-size: 12px;
+}
+
+/* Estilos do formulário de login */
+.container input[type="text"],
+.container input[type="password"] {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Ajustes para o formulário de cadastro */
+.form-container label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+/* Estilo para inputs de arquivos */
+input[type="file"] {
+    background-color: #f4f4f4;
+    padding: 5px;
+}
+
+.imagebuttonvoltar {
+    position: absolute;
+
+    width: 100%;
+    max-width: 80px; /* Largura máxima */
+    height: 50px;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+
+    box-shadow: 0 14px 16px rgba(0, 0, 0, 0.1);
+}
+
+.imagebuttonvoltar:hover {
+    box-shadow: 0 16px 24px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 1.3s;
+    transition: transform 1.3s;
+    transition: background-color 1.3s;
+    background-color: #006a92;
+}
+
+/* Botão secundário (Cadastrar) */
+.secondary-button {
+    background-color: #004f6e; /* Azul mais escuro */
+    color: #f4f4f4; /* Branco */
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.secondary-button:hover {
+    background-color: #003e56; /* Azul ainda mais escuro */
+    transition: background-color 0.3s;
+}

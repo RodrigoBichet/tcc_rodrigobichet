@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../style.css" />
+        <title>Menu</title>
+        <link rel="icon" type="image/x-icon" href="assets/ludus.png" />
+    </head>
+
+    <body class="home-page">
+        <div class="menu-superior-menu">
+            <div id="user-info" class="usuario">
+                <!-- O nome do usuário e foto de perfil serão carregados dinamicamente aqui -->
+                <!-- <div id="profile-picture-container" style="display: none">
+                    <img
+                        id="profile-picture"
+                        src=""
+                        alt="Foto de Perfil"
+                        width="50"
+                        height="50"
+                    />
+
+                    <span id="welcome-message"></span>
+                    
+                    <button id="logout-button">Sair</button>
+                </div>
+                 -->
+                <div id="profile-picture-container" style="display: none">
+                    <!-- <img
+                        id="profile-picture"
+                        src=""
+                        alt="Foto de Perfil"
+                        width="50"
+                        height="50"
+                    /> -->
+                    <img
+                        id="profile-picture"
+                        alt="Foto do Perfil"
+                        class="fotoperfil"
+                    />
+                    <span id="welcome-message"></span>
+                    <!-- Local onde a mensagem de boas-vindas será exibida -->
+                    <button id="logout-button">Sair</button>
+                </div>
+
+                <div id="login-register-buttons">
+                    <button id="login-button">Login</button>
+                    <button id="register-button">Cadastrar</button>
+                </div>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+        <script>
+            // Chama a função para verificar o status do login e carregar o nome do usuário ou opções de login
+            checkLoginStatus();
+        </script>
+
+        <div class="container">
+            <!-- Botão 1 -->
+            <div
+                class="image-button"
+                onclick="location.href='paraqueserve.html'"
+            >
+                <img src="../assets/TelaParaqueserve.png" alt="Jogo 1" />
+            </div>
+
+            <!-- Botão 2 -->
+            <div
+                class="image-button"
+                onclick="location.href='historietas.html'"
+            >
+                <img src="../assets/TelaHistorietas.png" alt="Jogo 2" />
+            </div>
+        </div>
+
+        <div class="titles">
+            <div class="title">Para que serve?</div>
+            <div class="title">Historietas Divertidas</div>
+        </div>
+    </body>
+</html>
