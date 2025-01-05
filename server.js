@@ -417,7 +417,7 @@ const multer = require("multer");
 const bcrypt = require("bcrypt");
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
-const db = require("../db"); // Conexão com o banco de dados
+const db = require("./db"); // Conexão com o banco de dados
 
 const app = express();
 const port = 3000;

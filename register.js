@@ -152,3 +152,7 @@ registerForm.addEventListener("submit", async (e) => {
         window.location.href = "login.html";
     }
 });
+
+function redirectToLogin() {
+    window.location.href = "login.html"; // Substitua pelo caminho correto para a página de cadastro
+}
