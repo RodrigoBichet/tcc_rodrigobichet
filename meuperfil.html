@@ -17,7 +17,6 @@
                     id="username"
                     name="username"
                     placeholder="Digite o novo nome"
-                    required
                 />
 
                 <label for="profile_picture">Foto de Perfil</label>
@@ -67,6 +66,7 @@
             const profilePictureInput =
                 document.getElementById("profile_picture");
             const imagePreview = document.getElementById("image-preview");
+            const usernameInput = document.getElementById("username");
 
             // Token JWT armazenado no localStorage
             const token = localStorage.getItem("token");
@@ -75,6 +75,36 @@
                 alert("Usuário não autenticado. Faça login para continuar.");
                 window.location.href = "/login.html"; // Redireciona para a página de login
             }
+
+            // Carregar nome atual do usuário ao entrar na página
+            async function loadUserProfile() {
+                try {
+                    const response = await fetch(
+                        "https://tcc-rodrigobichet-web2.onrender.com/user/profile",
+                        {
+                            method: "GET",
+                            headers: {
+                                Authorization: `Bearer ${token}`,
+                            },
+                        }
+                    );
+                    const data = await response.json();
+                    if (data.success && data.user) {
+                        usernameInput.value = data.user.username; // Preencher o campo com o nome atual
+                    } else {
+                        console.error(
+                            data.message ||
+                                "Erro ao carregar o perfil do usuário."
+                        );
+                    }
+                } catch (err) {
+                    console.error(err);
+                    alert("Erro ao carregar os dados do usuário.");
+                }
+            }
+
+            // Chamar a função para carregar o perfil
+            loadUserProfile();
 
             // Pré-visualização da imagem
             profilePictureInput.addEventListener("change", (event) => {
@@ -95,7 +125,18 @@
             // Atualizar perfil
             updateForm.addEventListener("submit", async (e) => {
                 e.preventDefault();
-                const formData = new FormData(updateForm);
+                const formData = new FormData();
+
+                // Adicionar apenas os campos preenchidos
+                if (usernameInput.value.trim()) {
+                    formData.append("username", usernameInput.value.trim());
+                }
+                if (profilePictureInput.files[0]) {
+                    formData.append(
+                        "profile_picture",
+                        profilePictureInput.files[0]
+                    );
+                }
 
                 try {
                     const response = await fetch(

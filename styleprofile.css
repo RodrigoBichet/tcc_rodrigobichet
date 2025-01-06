@@ -147,6 +147,7 @@ button:hover {
 
 #preview-container {
     margin-top: 10px;
+    margin-bottom: 10px;
     text-align: center;
 }
 
@@ -154,6 +155,13 @@ button:hover {
     max-width: 150px;
     max-height: 150px;
     display: none;
-    border-radius: 50%;
+    border-radius: 5px;
     border: 2px solid #ccc;
+}
+
+.form-container label {
+    display: block;
+    text-align: left;
+    margin-top: 10px;
+    font-size: 14px;
 }
