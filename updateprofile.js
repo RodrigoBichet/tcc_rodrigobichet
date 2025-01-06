@@ -20,7 +20,7 @@ updateForm.addEventListener("submit", async (e) => {
     try {
         // const response = await fetch("http://localhost:3000/user/update", {
         const response = await fetch(
-            "https://tcc-rodrigobichet-web.onrender.com/user/update",
+            "https://tcc-rodrigobichet-web2.onrender.com/user/update",
             {
                 method: "PUT",
                 headers: {
@@ -51,7 +51,7 @@ confirmDelete.addEventListener("click", async () => {
     try {
         // const response = await fetch("http://localhost:3000/user/delete", {
         const response = await fetch(
-            "https://tcc-rodrigobichet-web.onrender.com/user/delete",
+            "https://tcc-rodrigobichet-web2.onrender.com/user/delete",
             {
                 method: "DELETE",
                 headers: {

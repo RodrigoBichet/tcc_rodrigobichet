@@ -129,7 +129,7 @@ registerForm.addEventListener("submit", async (e) => {
     try {
         // const response = await fetch("http://localhost:3000/register", {
         const response = await fetch(
-            "https://tcc-rodrigobichet-web.onrender.com/register",
+            "https://tcc-rodrigobichet-web2.onrender.com/register",
             {
                 method: "POST",
                 body: formData,
