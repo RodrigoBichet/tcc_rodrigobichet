@@ -128,10 +128,13 @@ registerForm.addEventListener("submit", async (e) => {
 
     try {
         // const response = await fetch("http://localhost:3000/register", {
-        const response = await fetch("https://maisludus.netlify.app/register", {
-            method: "POST",
-            body: formData,
-        });
+        const response = await fetch(
+            "https://tcc-rodrigobichet-web.onrender.com/register",
+            {
+                method: "POST",
+                body: formData,
+            }
+        );
 
         const data = await response.json();
 

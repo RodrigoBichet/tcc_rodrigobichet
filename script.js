@@ -111,13 +111,16 @@ async function login() {
 
     try {
         // const response = await fetch("http://localhost:3000/login", {
-        const response = await fetch("https://maisludus.netlify.app/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ username, password }),
-        });
+        const response = await fetch(
+            "https://tcc-rodrigobichet-web.onrender.com/login",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ username, password }),
+            }
+        );
 
         const data = await response.json();
 
@@ -326,7 +329,7 @@ async function checkLoginStatus() {
         try {
             // const response = await fetch("http://localhost:3000/user/profile", {
             const response = await fetch(
-                "https://maisludus.netlify.app/user/profile",
+                "https://tcc-rodrigobichet-web.onrender.com/user/profile",
                 {
                     method: "GET",
                     headers: {
