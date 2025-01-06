@@ -104,7 +104,7 @@
 
 // // Chama a função para verificar o status de login assim que a página carrega
 // checkLoginStatus();
-const API_BASE_URL = "https://tcc-rodrigobichet-web2.onrender.com"; // Produção
+// const API_BASE_URL = "https://tcc-rodrigobichet-web2.onrender.com"; // Produção
 // const API_BASE_URL = "http://localhost:3000"; // Desenvolvimento
 
 async function login() {
@@ -113,13 +113,16 @@ async function login() {
 
     try {
         // const response = await fetch("http://localhost:3000/login", {
-        const response = await fetch(`${API_BASE_URL}/login`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ username, password }),
-        });
+        const response = await fetch(
+            "https://tcc-rodrigobichet-web2.onrender.com/login",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ username, password }),
+            }
+        );
 
         const data = await response.json();
 
@@ -327,12 +330,15 @@ async function checkLoginStatus() {
     if (token) {
         try {
             // const response = await fetch("http://localhost:3000/user/profile", {
-            const response = await fetch(`${API_BASE_URL}/user/profile`, {
-                method: "GET",
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            });
+            const response = await fetch(
+                "https://tcc-rodrigobichet-web2.onrender.com/user/profile",
+                {
+                    method: "GET",
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            );
 
             const data = await response.json();
 

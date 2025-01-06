@@ -17,8 +17,8 @@ CREATE DATABASE tcc_rodrigobichet;
 
 CREATE TABLE users (
 id SERIAL PRIMARY KEY,
-username VARCHAR(255) NOT NULL UNIQUE, -- Nome de usuário único
-email VARCHAR(255) NOT NULL UNIQUE, -- E-mail único
+username VARCHAR(255) NOT NULL UNIQUE, 
+email VARCHAR(255) NOT NULL UNIQUE, 
 password VARCHAR(255) NOT NULL,
-profile_picture TEXT -- Foto de perfil armazenada como URL Base64
+profile_picture TEXT 
 );
