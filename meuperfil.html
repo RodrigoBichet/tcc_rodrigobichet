@@ -73,7 +73,8 @@
 
                 try {
                     const response = await fetch(
-                        "http://localhost:3000/user/update",
+                        // "http://localhost:3000/user/update",
+                        "https://maisludus.netlify.app/user/update",
                         {
                             method: "PUT",
                             headers: {
@@ -105,7 +106,8 @@
             confirmDelete.addEventListener("click", async () => {
                 try {
                     const response = await fetch(
-                        "http://localhost:3000/user/delete",
+                        // "http://localhost:3000/user/delete",
+                        "https://maisludus.netlify.app/user/delete",
                         {
                             method: "DELETE",
                             headers: {

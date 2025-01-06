@@ -668,9 +668,14 @@ app.get("/user/profile", authenticateToken, async (req, res) => {
         }
 
         const user = result.rows[0];
+        // const profilePictureUrl = user.profile_picture
+        // ? `http://localhost:3000/uploads/${user.profile_picture}`
+        // : "http://localhost:3000/assets/profile-default.png";
         const profilePictureUrl = user.profile_picture
-            ? `http://localhost:3000/uploads/${user.profile_picture}`
-            : "http://localhost:3000/assets/profile-default.png";
+            ? `${req.protocol}://${req.get("host")}/uploads/${
+                  user.profile_picture
+              }`
+            : `${req.protocol}://${req.get("host")}/assets/profile-default.png`;
 
         return res.status(200).json({
             success: true,

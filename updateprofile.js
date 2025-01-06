@@ -18,13 +18,17 @@ updateForm.addEventListener("submit", async (e) => {
     const formData = new FormData(updateForm);
 
     try {
-        const response = await fetch("http://localhost:3000/user/update", {
-            method: "PUT",
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-            body: formData,
-        });
+        // const response = await fetch("http://localhost:3000/user/update", {
+        const response = await fetch(
+            "https://maisludus.netlify.app/user/update",
+            {
+                method: "PUT",
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+                body: formData,
+            }
+        );
         const data = await response.json();
         if (data.success) {
             alert("Perfil atualizado com sucesso!");
@@ -45,13 +49,17 @@ deleteButton.addEventListener("click", () => {
 // Confirmar exclusão
 confirmDelete.addEventListener("click", async () => {
     try {
-        const response = await fetch("http://localhost:3000/user/delete", {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`,
-            },
-        });
+        // const response = await fetch("http://localhost:3000/user/delete", {
+        const response = await fetch(
+            "https://maisludus.netlify.app/user/delete",
+            {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`,
+                },
+            }
+        );
         const data = await response.json();
         if (data.success) {
             alert("Conta excluída com sucesso!");
