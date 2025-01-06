@@ -9,10 +9,20 @@
         <script src="script.js"></script>
     </head>
     <body>
-        <div class="container">
+        <div class="form-container">
             <h2>Login</h2>
-            <input type="text" id="username" placeholder="Usuário" />
-            <input type="password" id="password" placeholder="Senha" />
+            <label for="email">Nome de Usuário:</label>
+            <input
+                type="text"
+                id="username"
+                placeholder="Digite seu nome de usuário"
+            />
+            <label for="email">Senha:</label>
+            <input
+                type="password"
+                id="password"
+                placeholder="Digite sua senha"
+            />
             <button onclick="login()">Entrar</button>
             <!-- Botão para cadastro -->
             <button class="secondary-button" onclick="redirectToRegister()">

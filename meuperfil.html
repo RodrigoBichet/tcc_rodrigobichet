@@ -17,6 +17,7 @@
                     id="username"
                     name="username"
                     placeholder="Digite o novo nome"
+                    required
                 />
 
                 <label for="profile_picture">Foto de Perfil</label>
@@ -24,7 +25,13 @@
                     type="file"
                     id="profile_picture"
                     name="profile_picture"
+                    accept="image/*"
                 />
+
+                <!-- Pré-visualização da imagem -->
+                <div id="preview-container">
+                    <img id="image-preview" src="" alt="Pré-visualização" />
+                </div>
 
                 <button type="submit">Atualizar Perfil</button>
             </form>
@@ -57,6 +64,9 @@
             const confirmModal = document.getElementById("confirm-modal");
             const confirmDelete = document.getElementById("confirm-delete");
             const cancelDelete = document.getElementById("cancel-delete");
+            const profilePictureInput =
+                document.getElementById("profile_picture");
+            const imagePreview = document.getElementById("image-preview");
 
             // Token JWT armazenado no localStorage
             const token = localStorage.getItem("token");
@@ -66,6 +76,22 @@
                 window.location.href = "/login.html"; // Redireciona para a página de login
             }
 
+            // Pré-visualização da imagem
+            profilePictureInput.addEventListener("change", (event) => {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = () => {
+                        imagePreview.src = reader.result;
+                        imagePreview.style.display = "block"; // Exibe a pré-visualização
+                    };
+                    reader.readAsDataURL(file);
+                } else {
+                    imagePreview.src = "";
+                    imagePreview.style.display = "none"; // Oculta a pré-visualização se não houver arquivo
+                }
+            });
+
             // Atualizar perfil
             updateForm.addEventListener("submit", async (e) => {
                 e.preventDefault();
@@ -73,7 +99,6 @@
 
                 try {
                     const response = await fetch(
-                        // "http://localhost:3000/user/update",
                         "https://tcc-rodrigobichet-web2.onrender.com/user/update",
                         {
                             method: "PUT",
@@ -106,7 +131,6 @@
             confirmDelete.addEventListener("click", async () => {
                 try {
                     const response = await fetch(
-                        // "http://localhost:3000/user/delete",
                         "https://tcc-rodrigobichet-web2.onrender.com/user/delete",
                         {
                             method: "DELETE",

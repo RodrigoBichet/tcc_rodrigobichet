@@ -144,3 +144,16 @@ button:hover {
     transition: background-color 1.3s;
     background-color: #006a92;
 }
+
+#preview-container {
+    margin-top: 10px;
+    text-align: center;
+}
+
+#image-preview {
+    max-width: 150px;
+    max-height: 150px;
+    display: none;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+}
