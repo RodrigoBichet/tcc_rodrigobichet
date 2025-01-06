@@ -107,39 +107,6 @@
 // const API_BASE_URL = "https://tcc-rodrigobichet-web2.onrender.com"; // Produção
 // const API_BASE_URL = "http://localhost:3000"; // Desenvolvimento
 
-async function login() {
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-
-    try {
-        // const response = await fetch("http://localhost:3000/login", {
-        const response = await fetch(
-            "https://tcc-rodrigobichet-web2.onrender.com/login",
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ username, password }),
-            }
-        );
-
-        const data = await response.json();
-
-        if (response.ok) {
-            // Armazena o token no localStorage
-            localStorage.setItem("token", data.token);
-            alert("Login bem-sucedido!");
-            window.location.href = "index.html"; // Redireciona para a home
-        } else {
-            alert(data.message || "Erro ao fazer login.");
-        }
-    } catch (error) {
-        console.error(error);
-        alert("Erro ao fazer login.");
-    }
-}
-
 // async function checkLoginStatus() {
 //     const token = localStorage.getItem("token");
 
@@ -324,12 +291,165 @@ async function login() {
 //         window.location.href = "login.html";
 //     }
 // }
+// async function login() {
+//     const username = document.getElementById("username").value;
+//     const password = document.getElementById("password").value;
+
+//     try {
+//         // const response = await fetch("http://localhost:3000/login", {
+//         const response = await fetch(
+//             "https://tcc-rodrigobichet-web2.onrender.com/login",
+//             {
+//                 method: "POST",
+//                 headers: {
+//                     "Content-Type": "application/json",
+//                 },
+//                 body: JSON.stringify({ username, password }),
+//             }
+//         );
+
+//         const data = await response.json();
+
+//         if (response.ok) {
+//             // Armazena o token no localStorage
+//             localStorage.setItem("token", data.token);
+//             alert("Login bem-sucedido!");
+//             window.location.href = "index.html"; // Redireciona para a home
+//         } else {
+//             alert(data.message || "Erro ao fazer login.");
+//         }
+//     } catch (error) {
+//         console.error(error);
+//         alert("Erro ao fazer login.");
+//     }
+// }
+
+// async function checkLoginStatus() {
+//     const token = localStorage.getItem("token");
+
+//     if (token) {
+//         try {
+//             // const response = await fetch("http://localhost:3000/user/profile", {
+//             const response = await fetch(
+//                 "https://tcc-rodrigobichet-web2.onrender.com/user/profile",
+//                 {
+//                     method: "GET",
+//                     headers: {
+//                         Authorization: `Bearer ${token}`,
+//                     },
+//                 }
+//             );
+
+//             const data = await response.json();
+
+//             console.log("Dados do perfil recebidos:", data);
+
+//             if (response.ok) {
+//                 // Esconde os botões de login/registro
+//                 document.getElementById(
+//                     "login-register-buttons"
+//                 ).style.display = "none";
+
+//                 // Mostra o container do perfil
+//                 const profilePictureContainer = document.getElementById(
+//                     "profile-picture-container"
+//                 );
+//                 profilePictureContainer.style.display = "block";
+
+//                 // Atualiza a foto de perfil
+//                 document.getElementById("profile-picture").src =
+//                     data.user.profile_picture_url;
+
+//                 // Atualiza a mensagem de boas-vindas
+//                 const welcomeMessage = `${data.user.username}`;
+//                 document.getElementById("welcome-message").textContent =
+//                     welcomeMessage;
+//             } else {
+//                 console.warn("Token inválido ou expirado.");
+//                 logout();
+//             }
+//         } catch (error) {
+//             console.error("Erro ao verificar login:", error);
+//             logout();
+//         }
+//     } else {
+//         console.warn("Token não encontrado. Redirecionando para login.");
+//         window.location.href = "login.html";
+//     }
+// }
+
+// // Logout
+// function logout() {
+//     localStorage.removeItem("token");
+//     alert("Logout realizado com sucesso!");
+//     window.location.href = "login.html";
+// }
+// // document.getElementById("logout-btn").addEventListener("click", logout);
+// document.getElementById("logout-button").addEventListener("click", logout);
+
+// // Adiciona evento de click nos botões de login e registro, caso necessário
+// document.getElementById("login-button").addEventListener("click", () => {
+//     window.location.href = "login.html"; // Redireciona para a página de login
+// });
+
+// document.getElementById("register-button").addEventListener("click", () => {
+//     window.location.href = "register.html"; // Redireciona para a página de cadastro
+// });
+
+// document.getElementById("profile-picture").addEventListener("click", () => {
+//     window.location.href = "meuperfil.html"; // Redireciona para a página de cadastro
+// });
+
+async function login() {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    try {
+        const response = await fetch(
+            "https://tcc-rodrigobichet-web2.onrender.com/login",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ username, password }),
+            }
+        );
+
+        const data = await response.json();
+
+        if (response.ok) {
+            // Armazena o token no localStorage
+            localStorage.setItem("token", data.token);
+            alert("Login bem-sucedido!");
+            window.location.href = "index.html"; // Redireciona para a home
+        } else {
+            alert(data.message || "Erro ao fazer login.");
+        }
+    } catch (error) {
+        console.error(error);
+        alert("Erro ao fazer login.");
+    }
+}
+
+// Adiciona funcionalidade para pressionar Enter
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        const activeElement = document.activeElement;
+        if (
+            activeElement.id === "username" ||
+            activeElement.id === "password"
+        ) {
+            login();
+        }
+    }
+});
+
 async function checkLoginStatus() {
     const token = localStorage.getItem("token");
 
     if (token) {
         try {
-            // const response = await fetch("http://localhost:3000/user/profile", {
             const response = await fetch(
                 "https://tcc-rodrigobichet-web2.onrender.com/user/profile",
                 {
@@ -385,47 +505,6 @@ function logout() {
     window.location.href = "login.html";
 }
 
-// Chama a função ao carregar a página
-//checkLoginStatus();
-
-// Função para fazer login
-// async function login() {
-//     const username = document.getElementById("username").value.trim();
-//     const password = document.getElementById("password").value.trim();
-
-//     if (!username || !password) {
-//         alert("Por favor, preencha todos os campos.");
-//         return;
-//     }
-
-//     try {
-//         const response = await fetch("http://localhost:3000/login", {
-//             method: "POST",
-//             headers: {
-//                 "Content-Type": "application/json",
-//             },
-//             body: JSON.stringify({ username, password }),
-//         });
-
-//         const data = await response.json();
-
-//         if (data.success) {
-//             // Salva as informações do usuário no localStorage
-//             localStorage.setItem("currentUser", JSON.stringify(data.user));
-
-//             alert("Login bem-sucedido!");
-//             window.location.href = "index.html"; // Redireciona para a página principal
-//         } else {
-//             alert(data.message || "Erro no login.");
-//         }
-//     } catch (error) {
-//         console.error("Erro ao realizar login:", error);
-//         alert("Erro ao conectar com o servidor.");
-//     }
-// }
-
-// Evento de click para o botão de logout
-// document.getElementById("logout-btn").addEventListener("click", logout);
 document.getElementById("logout-button").addEventListener("click", logout);
 
 // Adiciona evento de click nos botões de login e registro, caso necessário
