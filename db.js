@@ -26,10 +26,10 @@
 const { Pool } = require("pg");
 
 const pool = new Pool({
-    user: "postgres", // Seu usuário do banco
+    user: "tcc_rodrigobichet_user", // Seu usuário do banco
     host: "dpg-cttihp5ds78s73co9aag-a", // Substitua pelo endereço correto do seu banco na Render
     database: "tcc_rodrigobichet", // Nome do seu banco de dados
-    password: "Rootrb2025..", // A senha correta do banco
+    password: "EDlT1BBCjQokqWDNbJmwJu9o7UmM4x73", // A senha correta do banco
     port: 5432, // Porta padrão do PostgreSQL
 });
 
