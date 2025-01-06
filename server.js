@@ -420,12 +420,26 @@ const jwt = require("jsonwebtoken");
 const db = require("./db"); // Conexão com o banco de dados
 
 const app = express();
-const port = 3000;
-const SECRET_KEY = "tcc_rodrigobichet"; // Substitua por uma chave segura
+// const port = 3000;
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => {
+    console.log(`Servidor rodando na porta ${port}`);
+});
+
+// const SECRET_KEY = "tcc_rodrigobichet"; // Substitua por uma chave segura
+const SECRET_KEY = "EDlT1BBCjQokqWDNbJmwJu9o7UmM4x73"; // Substitua por uma chave segura
 
 // Middleware
 app.use(express.json());
-app.use(cors());
+// app.use(cors());
+app.use(
+    cors({
+        origin: "https://maisludus.netlify.app", // Substitua pela URL do seu site no Netlify
+        methods: ["GET", "POST", "PUT", "DELETE"],
+        credentials: true, // Se precisar enviar cookies
+    })
+);
 
 // Configuração do multer para upload de arquivos
 const upload = multer({ dest: "uploads/" });
@@ -679,6 +693,6 @@ app.use("/uploads", express.static("uploads"));
 app.use("/assets", express.static("assets"));
 
 // Inicia o servidor
-app.listen(port, () => {
-    console.log(`Servidor rodando em http://localhost:${port}`);
-});
+// app.listen(port, () => {
+//     console.log(`Servidor rodando em http://localhost:${port}`);
+// });
