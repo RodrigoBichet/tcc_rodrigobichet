@@ -435,8 +435,8 @@ app.use(express.json());
 // app.use(cors());
 app.use(
     cors({
-        // origin: "https://maisludus.netlify.app", // Substitua pela URL do seu site no Netlify
-        origin: "https://tcc-rodrigobichet-web2.onrender.com", // Substitua pela URL do seu site no Netlify
+        origin: "https://maisludus.netlify.app", // Substitua pela URL do seu site no Netlify
+        // origin: "https://tcc-rodrigobichet-web2.onrender.com", // Substitua pela URL do seu site no Netlify
         methods: ["GET", "POST", "PUT", "DELETE"],
         credentials: true, // Se precisar enviar cookies
     })
