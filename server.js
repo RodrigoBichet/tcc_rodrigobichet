@@ -558,7 +558,7 @@ app.post("/login", async (req, res) => {
         const token = jwt.sign(
             { id: user.id, username: user.username },
             SECRET_KEY,
-            { expiresIn: "30m" }
+            { expiresIn: "3000m" }
         );
 
         return res.status(200).json({
